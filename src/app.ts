@@ -1,12 +1,12 @@
 import express, { Application, Request, Response } from "express";
 import cors from "cors";
+import { booksRoutes } from "./controller/books.controller";
 
 const app: Application = express();
 app.use(express.json());
 app.use(cors());
 
-// app.use("/notes", notesRoutes);
-// app.use("/users", usersRoutes);
+app.use("/api", booksRoutes);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Welcome to Library Management App!");

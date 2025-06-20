@@ -1,16 +1,5 @@
 import { model, Schema } from "mongoose";
-import { IBooks, IBorrowBooks } from "../interfaces/books.interface";
-
-const borrowSchema = new Schema<IBorrowBooks>({
-  book: {
-    type: Schema.Types.ObjectId,
-    ref: "Books",
-    required: true
-  },
-  quantity: { type: Number, required: true },
-  dueDate: Date
-});
-
+import { IBooks } from "../interfaces/books.interface";
 
 const booksSchema = new Schema<IBooks>(
   {
@@ -56,6 +45,7 @@ const booksSchema = new Schema<IBooks>(
   },
   {
     versionKey: false,
+    timestamps: true
   }
 );
 
