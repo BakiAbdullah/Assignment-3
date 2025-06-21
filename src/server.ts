@@ -3,7 +3,7 @@ import { Server } from "http";
 import app from "./app";
 
 let server: Server;
-const PORT = 5000;
+const PORT = "https://assignment-3-xi-kohl.vercel.app"
 
 async function main() {
   try {
