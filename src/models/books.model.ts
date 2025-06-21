@@ -1,7 +1,11 @@
-import { model, Schema } from "mongoose";
-import { IBooks } from "../interfaces/books.interface";
+import { Model, model, Schema } from "mongoose";
+import { BookInstanceMethods, IBooks } from "../interfaces/books.interface";
 
-const booksSchema = new Schema<IBooks>(
+const booksSchema = new Schema<
+  IBooks,
+  Model<IBooks, {}, BookInstanceMethods>,
+  BookInstanceMethods
+>(
   {
     title: {
       type: String,
@@ -36,7 +40,7 @@ const booksSchema = new Schema<IBooks>(
     copies: {
       type: Number,
       required: true,
-      min: 1,
+      min: 0,
     },
     available: {
       type: Boolean,
@@ -45,8 +49,21 @@ const booksSchema = new Schema<IBooks>(
   },
   {
     versionKey: false,
-    timestamps: true
+    timestamps: true,
   }
 );
 
-export const Books = model<IBooks>("Books", booksSchema);
+//& Step-2 instance method
+booksSchema.method("decreaseBookCopies", async function (quantity: number) {
+  this.copies -= quantity;
+  if (this.copies <= 0) {
+    this.available = false;
+  }
+  await this.save();
+});
+
+//& Instance add krte hbe schema te
+export const Books = model<IBooks, Model<IBooks, {}, BookInstanceMethods>>(
+  "Books",
+  booksSchema
+);

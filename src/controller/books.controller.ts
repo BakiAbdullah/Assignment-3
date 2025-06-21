@@ -31,11 +31,11 @@ booksRoutes.get("/books", async (req: Request, res: Response) => {
     const { filter, sortBy, sort, limit } = req.query;
 
     const genre = filter?.toString().toUpperCase();
-    const sortField = sortBy?.toString() || "createdAt";
+    const sortField = sortBy?.toString() || "createdAt" ;
     const sortOrder = sort === "asc" ? 1 : -1;
     const sortLimit = parseInt(limit as string) || 10;
 
-    const query: any = {};
+    let query: any = {};
     if (genre) {
       query.genre = genre;
     }

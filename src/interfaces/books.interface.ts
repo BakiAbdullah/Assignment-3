@@ -13,11 +13,16 @@ export interface IBooks {
   isbn: string;
   description: string;
   copies: number;
-  available: boolean;
+  available?: boolean;
+}
+
+//& Step-1 (Interface)
+export interface BookInstanceMethods {
+  decreaseBookCopies(quantity: number): Promise<void>;
 }
 
 export interface IBorrowBooks {
   book: Types.ObjectId;
   quantity: number;
-  dueDate: string
+  dueDate: string;
 }
