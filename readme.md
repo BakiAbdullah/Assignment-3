@@ -27,8 +27,8 @@ A production-ready RESTful API for managing books and borrow operations, built w
 ###  Installation
 
 ```bash
-git clone https://github.com/your-username/library-management-api.git
-cd library-management-api
+git clone https://github.com/BakiAbdullah/Assignment-3.git
+cd your folder
 npm install   # or npm install
 ```
 
