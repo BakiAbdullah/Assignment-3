@@ -72,7 +72,7 @@ npm start
 ### Base URL
 
 ```
-https://assignment-3-xi-kohl.vercel.app/api
+https://assignment-3-xi-kohl.vercel.app
 ```
 
 ---
