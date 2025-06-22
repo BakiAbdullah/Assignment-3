@@ -40,7 +40,7 @@ Create a `.env` file at the root:
 ```env
 PORT = https://assignment-3-xi-kohl.vercel.app
 
-MONGO_URI = mongodb+srv://bakiabdullah:bQQV1JxFXSNVtbHn@cluster0.uqgxsrk.mongodb.net/library-management?retryWrites=true&w=majority&appName=Cluster0
+DATABASE_URL = mongodb+srv://bakiabdullah:bQQV1JxFXSNVtbHn@cluster0.uqgxsrk.mongodb.net/library-management?retryWrites=true&w=majority&appName=Cluster0
 ```
 
 ---
