@@ -53,7 +53,7 @@ const booksSchema = new Schema<
   }
 );
 
-//& Step-2 instance method
+//& Step-3 instance method will call after pre-save hook
 booksSchema.method("decreaseBookCopies", async function (quantity: number) {
   this.copies -= quantity;
   if (this.copies <= 0) {
@@ -62,7 +62,7 @@ booksSchema.method("decreaseBookCopies", async function (quantity: number) {
   await this.save();
 });
 
-//& Instance add krte hbe schema te
+//& Adding Instance on model
 export const Books = model<IBooks, Model<IBooks, {}, BookInstanceMethods>>(
   "Books",
   booksSchema

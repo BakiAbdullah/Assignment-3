@@ -31,7 +31,7 @@ booksRoutes.get("/books", async (req: Request, res: Response) => {
     const { filter, sortBy, sort, limit } = req.query;
 
     const genre = filter?.toString().toUpperCase();
-    const sortField = sortBy?.toString() || "createdAt" ;
+    const sortField = sortBy?.toString() || "createdAt";
     const sortOrder = sort === "asc" ? 1 : -1;
     const sortLimit = parseInt(limit as string) || 10;
 
@@ -136,7 +136,6 @@ booksRoutes.post("/borrow", async (req: Request, res: Response) => {
       data,
     });
   } catch (error: any) {
-
     res.status(400).json({
       success: false,
       message: error.message,
@@ -158,7 +157,7 @@ booksRoutes.get("/borrow", async (req: Request, res: Response) => {
       //stage-2
       {
         $lookup: {
-          from: "books", // lowercase collection name
+          from: "books",
           localField: "_id",
           foreignField: "_id",
           as: "book",

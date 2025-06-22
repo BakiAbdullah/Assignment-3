@@ -1,6 +1,6 @@
 import express, { Application, Request, Response } from "express";
 import cors from "cors";
-import { booksRoutes } from "./controller/books.controller";
+import { booksRoutes } from "./app/controller/books.controller";
 
 const app: Application = express();
 app.use(express.json());

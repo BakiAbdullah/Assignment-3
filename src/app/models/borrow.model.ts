@@ -18,9 +18,9 @@ const borrowBookSchema = new Schema<IBorrowBooks>(
   }
 );
 
-//& Step-3 checking availability and decreasing a book before borrowing
-borrowBookSchema.pre('save', async function (next) {
-  const book = await Books.findOne({_id: this.book._id});
+//& Step-2 checking availability and decreasing a book before borrowing
+borrowBookSchema.pre("save", async function (next) {
+  const book = await Books.findOne({ _id: this.book._id });
   if (!book) {
     throw new Error("Book not found");
   }
@@ -28,11 +28,9 @@ borrowBookSchema.pre('save', async function (next) {
   if (book.copies < this.quantity) {
     throw new Error("Not enough copies available for this book");
   }
-  await book.decreaseBookCopies(this.quantity); 
+  await book.decreaseBookCopies(this.quantity);
   next();
-})
-
-
+});
 
 export const BorrowedBook = model<IBorrowBooks>(
   "BorrowedBook",
