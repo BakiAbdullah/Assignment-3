@@ -55,6 +55,7 @@ const booksSchema = new Schema<
 
 //& Step-3 instance method will call after pre-save hook
 booksSchema.method("decreaseBookCopies", async function (quantity: number) {
+  // Decresing quantity
   this.copies -= quantity;
   if (this.copies <= 0) {
     this.available = false;

@@ -35,6 +35,7 @@ npm install   # or npm install
 ---
 
 ### ⚙️ Configuration
+Create a `.env` file at the root:
 
 ```env
 PORT = https://assignment-3-xi-kohl.vercel.app

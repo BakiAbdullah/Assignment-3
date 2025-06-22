@@ -21,6 +21,7 @@ const borrowBookSchema = new Schema<IBorrowBooks>(
 //& Step-2 checking availability and decreasing a book before borrowing
 borrowBookSchema.pre("save", async function (next) {
   const book = await Books.findOne({ _id: this.book._id });
+  // Checking if the book and enough quantity available
   if (!book) {
     throw new Error("Book not found");
   }
